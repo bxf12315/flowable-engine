@@ -68,11 +68,11 @@ create table ACT_ID_TOKEN (
     primary key (ID_)
 );
 
-create table ACT_ID_CAPABILITY (
+create table ACT_ID_PRIVILEGE (
     ID_ varchar(64) not null,
     USER_ID_ varchar(255),
     GROUP_ID_ varchar(255),
-    CAPABILITY_NAME_ varchar(255),
+    NAME_ varchar(255),
     primary key (ID_)
 );
 
@@ -86,4 +86,4 @@ alter table ACT_ID_MEMBERSHIP
     foreign key (USER_ID_)
     references ACT_ID_USER;
     
-create index ACT_IDX_CAP_NAME on ACT_ID_CAPABILITY(CAPABILITY_NAME_);
+create index ACT_IDX_PRIV_NAME on ACT_ID_PRIVILEGE(NAME_);

@@ -92,16 +92,16 @@ activitiApp
                 verify: authRouteResolver
             }
         })
-        .when('/system-group-mgmt', {
-            controller: 'IdmSystemGroupMgmtController',
-            templateUrl: appResourceRoot + 'views/idm-system-group-mgmt.html',
+        .when('/group-mgmt', {
+            controller: 'GroupMgmtController',
+            templateUrl: appResourceRoot + 'views/idm-group-mgmt.html',
             resolve: {
                 verify: authRouteResolver
             }
         })
-        .when('/group-mgmt', {
-            controller: 'GroupMgmtController',
-            templateUrl: appResourceRoot + 'views/idm-group-mgmt.html',
+        .when('/privilege-mgmt', {
+            controller: 'PrivilegeMgmtController',
+            templateUrl: appResourceRoot + 'views/idm-privilege-mgmt.html',
             resolve: {
                 verify: authRouteResolver
             }
@@ -196,9 +196,17 @@ activitiApp
                         }
                     },
                     {
-                        id: 'functionalGroupMgmt',
+                        id: 'groupMgmt',
                         title: 'IDM.GENERAL.NAVIGATION.GROUP-MGMT',
                         path: '/group-mgmt',
+                        isVisible: function() {
+                            return AuthenticationSharedService.hasAdminCapability();
+                        }
+                    },
+                    {
+                        id: 'privilegeMgmt',
+                        title: 'IDM.GENERAL.NAVIGATION.PRIVILEGE-MGMT',
+                        path: '/privilege-mgmt',
                         isVisible: function() {
                             return AuthenticationSharedService.hasAdminCapability();
                         }
@@ -336,8 +344,6 @@ activitiApp
         });
 
         updateWindowSize();
-
-        /* Capabilities */
 
         $rootScope.logout = function() {
             AuthenticationSharedService.logout();

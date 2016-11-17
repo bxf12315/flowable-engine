@@ -15,8 +15,9 @@ package org.activiti.app.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.activiti.app.service.api.UserCache;
-import org.activiti.app.service.api.UserCache.CachedUser;
+import org.activiti.app.idm.cache.UserCache;
+import org.activiti.app.idm.cache.UserCache.CachedUser;
+import org.activiti.app.idm.security.ActivitiAppUser;
 import org.activiti.idm.api.Group;
 import org.activiti.idm.api.IdmIdentityService;
 import org.activiti.idm.api.User;
@@ -66,7 +67,6 @@ public class UserDetailsService implements org.springframework.security.core.use
       throw new UsernameNotFoundException("User " + actualLogin + " was not found in the database");
     }
 
-    // Add capabilities to user object
     Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
 
     // add default authority

@@ -186,21 +186,31 @@ public interface IdmIdentityService {
   void deleteUserInfo(String userId, String key);
   
   /**
-   * Creates a new {@link Capability} with the provided name and user or group id.
+   * Creates a new {@link Privilege} with the provided name and user or group id.
    * @param userId Needs to be non-null when groupId is null.
    * @param groupId Needs to be non-null when userId is null.
-   * @throws ActivitiIllegalArgumentException if both capabilityName is null or if both userId/groupId are null.  
+   * @throws ActivitiIllegalArgumentException if both privilegeName is null or if both userId/groupId are null.  
    */
-  Capability createCapability(String capabilityName, String userId, String groupId);
+  Privilege createPrivilege(String privilegeName, String userId, String groupId);
   
   /**
-   * Deletes the capability with the given id.
+   * Deletes the privilege with the given id.
    */
-  void deleteCapability(String capabilityId);
+  void deletePrivilege(String privilegeId);
   
   /**
-   * Creates a {@link CapabilityQuery} that allows to programmatically query capabilities. 
+   * Returns all {@link User} instances that have a particular privilege. 
    */
-  CapabilityQuery createCapabilityQuery();
+  List<User> getUsersWithPrivilege(String privilegeName);
+  
+  /**
+   * Returns all {@link Group} instances that have a particular privilege. 
+   */
+  List<Group> getGroupsWithPrivilege(String privilegeName);
+  
+  /**
+   * Creates a {@link PrivilegeQuery} that allows to programmatically query privileges. 
+   */
+  PrivilegeQuery createPrivilegeQuery();
   
 }

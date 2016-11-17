@@ -12,16 +12,14 @@
  */
 package org.activiti.app.rest.idm;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.activiti.app.model.idm.GroupRepresentation;
-import org.activiti.app.model.idm.UserRepresentation;
-import org.activiti.app.security.SecurityUtils;
-import org.activiti.app.service.exception.UnauthorizedException;
+import org.activiti.app.idm.exception.UnauthorizedException;
+import org.activiti.app.idm.model.GroupRepresentation;
+import org.activiti.app.idm.model.UserRepresentation;
+import org.activiti.app.idm.security.SecurityUtils;
+import org.activiti.app.idm.service.GroupService;
 import org.activiti.idm.api.Group;
-import org.activiti.idm.api.IdmIdentityService;
 import org.activiti.idm.api.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +41,7 @@ public class AccountResource {
 	private ObjectMapper objectMapper;
 	
 	@Autowired
-	private IdmIdentityService identityService;
+	private GroupService groupService;
 
   /**
    * GET  /rest/authenticate -> check if the user is authenticated, and return its full name.
@@ -67,14 +65,10 @@ public class AccountResource {
   @RequestMapping(value = "/rest/account", method = RequestMethod.GET, produces = "application/json")
   public UserRepresentation getAccount() {
     User user = SecurityUtils.getCurrentActivitiAppUser().getUserObject();
-    
     UserRepresentation userRepresentation = new UserRepresentation(user);
-    
-    List<Group> groups = identityService.createGroupQuery().groupMember(user.getId()).list();
-    for (Group group : groups) {
+    for (Group group : groupService.getGroupsForUser(user.getId())) {
       userRepresentation.getGroups().add(new GroupRepresentation(group));
     }
-    
     return userRepresentation;
   }
 }

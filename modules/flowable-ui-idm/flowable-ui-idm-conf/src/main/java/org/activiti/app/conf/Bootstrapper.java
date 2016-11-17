@@ -12,8 +12,8 @@
  */
 package org.activiti.app.conf;
 
-import org.activiti.app.constant.GroupIds;
-import org.activiti.app.constant.GroupTypes;
+import org.activiti.app.idm.constant.GroupIds;
+import org.activiti.app.idm.constant.GroupTypes;
 import org.activiti.idm.api.Group;
 import org.activiti.idm.api.IdmIdentityService;
 import org.activiti.idm.api.User;

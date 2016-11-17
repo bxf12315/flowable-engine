@@ -20,7 +20,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.activiti.app.service.idm.PersistentTokenService;
+import org.activiti.app.idm.security.ActivitiAppUser;
+import org.activiti.app.idm.service.PersistentTokenService;
 import org.activiti.idm.api.IdmIdentityService;
 import org.activiti.idm.api.Token;
 import org.activiti.idm.api.User;

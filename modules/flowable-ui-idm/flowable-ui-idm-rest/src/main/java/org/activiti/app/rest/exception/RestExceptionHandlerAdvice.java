@@ -12,16 +12,16 @@
  */
 package org.activiti.app.rest.exception;
 
-import org.activiti.app.security.SecurityUtils;
-import org.activiti.app.service.exception.BadRequestException;
-import org.activiti.app.service.exception.BaseModelerRestException;
-import org.activiti.app.service.exception.ConflictingRequestException;
-import org.activiti.app.service.exception.ErrorInfo;
-import org.activiti.app.service.exception.InternalServerErrorException;
-import org.activiti.app.service.exception.NonJsonResourceNotFoundException;
-import org.activiti.app.service.exception.NotFoundException;
-import org.activiti.app.service.exception.NotPermittedException;
-import org.activiti.app.service.exception.UnauthorizedException;
+import org.activiti.app.idm.exception.BadRequestException;
+import org.activiti.app.idm.exception.BaseModelerRestException;
+import org.activiti.app.idm.exception.ConflictingRequestException;
+import org.activiti.app.idm.exception.ErrorInfo;
+import org.activiti.app.idm.exception.InternalServerErrorException;
+import org.activiti.app.idm.exception.NonJsonResourceNotFoundException;
+import org.activiti.app.idm.exception.NotFoundException;
+import org.activiti.app.idm.exception.NotPermittedException;
+import org.activiti.app.idm.exception.UnauthorizedException;
+import org.activiti.app.idm.security.SecurityUtils;
 import org.activiti.idm.api.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -31,12 +31,12 @@ create table ACT_ID_TOKEN (
     primary key (ID_)
 );
 
-create table ACT_ID_CAPABILITY (
+create table ACT_ID_PRIVILEGE (
     ID_ nvarchar(64) not null,
     USER_ID_ nvarchar(255),
     GROUP_ID_ nvarchar(255),
-    CAPABILITY_ nvarchar(255),
+    NAME_ nvarchar(255),
     primary key (ID_)
 );  
     
-create index ACT_IDX_CAP_NAME on ACT_ID_CAPABILITY(CAPABILITY_);
+create index ACT_IDX_PRIV_NAME on ACT_ID_PRIVILEGE(NAME_);

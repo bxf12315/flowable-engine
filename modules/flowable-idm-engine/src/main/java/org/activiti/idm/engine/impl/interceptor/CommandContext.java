@@ -19,10 +19,10 @@ import org.activiti.engine.impl.interceptor.BaseCommandContextCloseListener;
 import org.activiti.idm.engine.IdmEngineConfiguration;
 import org.activiti.idm.engine.impl.db.DbSqlSession;
 import org.activiti.idm.engine.impl.persistence.entity.ByteArrayEntityManager;
-import org.activiti.idm.engine.impl.persistence.entity.CapabilityEntityManager;
 import org.activiti.idm.engine.impl.persistence.entity.GroupEntityManager;
 import org.activiti.idm.engine.impl.persistence.entity.IdentityInfoEntityManager;
 import org.activiti.idm.engine.impl.persistence.entity.MembershipEntityManager;
+import org.activiti.idm.engine.impl.persistence.entity.PrivilegeEntityManager;
 import org.activiti.idm.engine.impl.persistence.entity.PropertyEntityManager;
 import org.activiti.idm.engine.impl.persistence.entity.TableDataManager;
 import org.activiti.idm.engine.impl.persistence.entity.TokenEntityManager;
@@ -86,8 +86,8 @@ public class CommandContext extends AbstractCommandContext {
     return idmEngineConfiguration.getUserEntityManager();
   }
   
-  public CapabilityEntityManager getCapabilityEntityManager() {
-    return idmEngineConfiguration.getCapabilityEntityManager();
+  public PrivilegeEntityManager getPrivilegeEntityManager() {
+    return idmEngineConfiguration.getPrivilegeEntityManager();
   }
   
   public TableDataManager getTableDataManager() {

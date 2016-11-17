@@ -19,7 +19,7 @@ activitiApp.controller('GroupMgmtController', ['$rootScope', '$scope', '$transla
 
         var validUser = true;
 
-        $rootScope.setMainPageById('functionalGroupMgmt');
+        $rootScope.setMainPageById('groupMgmt');
 
         $scope.model = {
             loading: true,

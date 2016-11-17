@@ -31,12 +31,12 @@ create table ACT_ID_TOKEN (
     primary key (ID_)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;
 
-create table ACT_ID_CAPABILITY (
+create table ACT_ID_PRIVILEGE (
     ID_ varchar(64) not null,
     USER_ID_ varchar(255),
     GROUP_ID_ varchar(255),
-    CAPABILITY_ varchar(255),
+    NAME_ varchar(255),
     primary key (ID_)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;  
     
-create index ACT_IDX_CAP_NAME on ACT_ID_CAPABILITY(CAPABILITY_);
+create index ACT_IDX_PRIV_NAME on ACT_ID_PRIVILEGE(NAME_);

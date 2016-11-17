@@ -205,4 +205,56 @@ angular.module('activitiApp').service('IdmService', ['$http', '$q', '$rootScope'
             )
         };
 
+        this.getPrivileges = function() {
+            return httpAsPromise({
+                method: 'GET',
+                url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges'
+            })
+        };
+
+        this.getPrivilege = function(privilege) {
+            return httpAsPromise({
+                method: 'GET',
+                url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges/' + privilege
+            });
+        };
+
+        this.addUserPrivilege = function(privilege, userId) {
+            return httpAsPromise(
+                {
+                    method: 'POST',
+                    url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges/' + privilege + '/users',
+                    data: { userId : userId}
+                }
+            )
+        };
+
+        this.deleteUserPrivilege = function(privilege, userId) {
+            return httpAsPromise(
+                {
+                    method: 'DELETE',
+                    url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges/' + privilege + '/users/' + userId
+                }
+            )
+        };
+
+        this.addGroupPrivilege = function(privilege, groupId) {
+            return httpAsPromise(
+                {
+                    method: 'POST',
+                    url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges/' + privilege + '/groups',
+                    data: { groupId : groupId}
+                }
+            )
+        };
+
+        this.deleteGroupPrivilege = function(privilege, groupId) {
+            return httpAsPromise(
+                {
+                    method: 'DELETE',
+                    url: FLOWABLE.CONFIG.contextRoot + '/app/rest/admin/privileges/' + privilege + '/groups/' + groupId
+                }
+            )
+        };
+
     }]);

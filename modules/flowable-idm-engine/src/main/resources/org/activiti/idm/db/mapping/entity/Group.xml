@@ -148,4 +148,11 @@
     ${sql}
   </select>
   
+  <select id="selectGroupsWithPrivilegeName" parameterType="string" resultMap="groupResultMap">
+    select * from ${prefix}ACT_ID_GROUP RES
+    inner join ${prefix}ACT_ID_PRIVILEGE PRIV on PRIV.GROUP_ID_ = RES.ID_
+    where PRIV.NAME_ = #{parameter}
+    order by RES.NAME_
+  </select>
+  
 </mapper>

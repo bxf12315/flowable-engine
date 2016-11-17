@@ -154,4 +154,11 @@
     ${sql}
   </select>
   
+  <select id="selectUsersWithPrivilegeName" parameterType="string" resultMap="userResultMap">
+    select * from ${prefix}ACT_ID_USER RES
+    inner join ${prefix}ACT_ID_PRIVILEGE PRIV on PRIV.USER_ID_ = RES.ID_
+    where PRIV.NAME_ = #{parameter}
+    order by RES.LAST_
+  </select>
+  
 </mapper>
